@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  min-height: 400px;
+  min-width: 300px;
 }
 
 .App-logo {
@@ -16,6 +18,10 @@
 
 .App-intro {
   font-size: large;
+}
+
+.fixedDataTableLayout_rowsContainer{
+  min-width: 1000px;
 }
 
 @keyframes App-logo-spin {

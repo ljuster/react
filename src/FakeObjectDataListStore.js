@@ -1,5 +1,6 @@
 
 var faker = require('faker');
+import myData2 from './ads_metrics/ads-metrics-data.json'
 
 class FakeObjectDataListStore {
     constructor(/*number*/ size){
@@ -9,9 +10,8 @@ class FakeObjectDataListStore {
 
     createFakeRowObjectData(/*number*/ index) /*object*/ {
         return {
-            id: index,
+            id: myData2,
             avatar: faker.image.avatar(),
-            city: faker.address.city(),
             email: faker.internet.email(),
             firstName: faker.name.firstName(),
             lastName: faker.name.lastName(),
