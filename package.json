@@ -8,7 +8,8 @@
   "dependencies": {
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
-    "fixed-data-table": "^0.6.2"
+    "fixed-data-table": "^0.6.2",
+    "faker":"^2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
