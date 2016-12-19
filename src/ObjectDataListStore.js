@@ -8,6 +8,7 @@ class ObjectDataListStore {
     }
 
     getRowObjectData(ad_ind, metric_ind) /*object*/ {
+        var ag = "actions:goal"
         return {
             name: myData.ads[ad_ind].name,
             status: myData.ads[ad_ind].status,
@@ -18,7 +19,7 @@ class ObjectDataListStore {
             spend: myData2.rows[metric_ind].spend,
             ctr: myData2.rows[metric_ind].ctr,
             cost_per_inline_link_click: myData2.rows[metric_ind].cost_per_inline_link_click,
-            actions_goal: myData2.rows[metric_ind].actions_goal,
+            actions_goal: myData2.rows[metric_ind].ag,
             actions_link_click: myData2.rows[metric_ind].actions_link_click,
             cost_per_action_type_cost_per_goal: myData2.rows[metric_ind].cost_per_action_type_cost_per_goal,
             actions_offsite_conversion: myData2.rows[metric_ind].actions_offsite_conversion

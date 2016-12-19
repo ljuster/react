@@ -25,7 +25,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      dataList: new ObjectDataListStore(1000000),
+      dataList: new ObjectDataListStore(),
     };
   }
   render() {
@@ -35,8 +35,8 @@ class App extends Component {
         rowHeight={50}
         headerHeight={50}
         rowsCount={dataList.getSize()}
-        width={500}
-        height={500}
+        width={800}
+        height={400}
         {...this.props}>
         <Column
           header={<Cell>Name</Cell>}
@@ -46,7 +46,6 @@ class App extends Component {
          <Column
           header={<Cell>Status</Cell>}
           cell={<LinkCell data={dataList} col="status" />}
-          fixed={true}
           width={100}/>
         <Column
           header={<Cell>Impressions</Cell>}
