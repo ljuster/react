@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 
-var FakeObjectDataListStore = require('./FakeObjectDataListStore');
+var ObjectDataListStore = require('./ObjectDataListStore');
 var FixedDataTable = require('fixed-data-table');
+var myData2 = require('./ads_metrics/ads-metrics-data.json');
+
 
 const {Table, Column, Cell} = FixedDataTable;
 
-const DateCell = ({rowIndex, data, col, ...props}) => (
-  <Cell {...props}>
-    {data.getObjectAt(rowIndex)[col].toLocaleString()}
-  </Cell>
-);
 
 const LinkCell = ({rowIndex, data, col, ...props}) => (
   <Cell {...props}>
@@ -30,7 +27,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      dataList: new FakeObjectDataListStore(1000000),
+      dataList: new ObjectDataListStore(1000000),
     };
   }
   render() {
@@ -40,38 +37,45 @@ class App extends Component {
         rowHeight={50}
         headerHeight={50}
         rowsCount={dataList.getSize()}
-        width={1000}
+        width={500}
         height={500}
         {...this.props}>
         <Column
-          header={<Cell>First Name</Cell>}
-          cell={<LinkCell data={dataList} col="firstName" />}
+          header={<Cell>Name</Cell>}
+          cell={<LinkCell data={dataList} col="name" />}
           fixed={true}
           width={100}/>
         <Column
-          header={<Cell>Last Name</Cell>}
-          cell={<TextCell data={dataList} col="lastName" />}
-          fixed={true}
+          header={<Cell>Impressions</Cell>}
+          cell={<TextCell data={dataList} col="impressions" />}
           width={100}/>
         <Column
-          header={<Cell>City</Cell>}
-          cell={<TextCell data={dataList} col="city" />}
+          header={<Cell>Reach</Cell>}
+          cell={<TextCell data={dataList} col="reach" />}
           width={100}/>
         <Column
-          header={<Cell>Street</Cell>}
-          cell={<TextCell data={dataList} col="street" />}
+          header={<Cell>Frequency</Cell>}
+          cell={<TextCell data={dataList} col="frequency" />}
           width={200}/>
         <Column
-          header={<Cell>Zip Code</Cell>}
-          cell={<TextCell data={dataList} col="zipCode" />}
+          header={<Cell>Ctr</Cell>}
+          cell={<TextCell data={dataList} col="ctr" />}
           width={200}/>
         <Column
-          header={<Cell>Email</Cell>}
-          cell={<LinkCell data={dataList} col="email" />}
+          header={<Cell>cost_per_inline_link_click</Cell>}
+          cell={<LinkCell data={dataList} col="cost_per_inline_link_click" />}
           width={200}/>
         <Column
-          header={<Cell>DOB</Cell>}
-          cell={<DateCell data={dataList} col="date" />}
+          header={<Cell>actions_goal</Cell>}
+          cell={<TextCell data={dataList} col="actions_goal" />}
+          width={200}/>
+        <Column
+          header={<Cell>cost_per_action_type_cost_per_goal</Cell>}
+          cell={<TextCell data={dataList} col="cost_per_action_type_cost_per_goal" />}
+          width={200}/>
+        <Column
+          header={<Cell>actions_offsite_conversion</Cell>}
+          cell={<TextCell data={dataList} col="actions_offsite_conversion" />}
           width={200}/>
       </Table>
     );
