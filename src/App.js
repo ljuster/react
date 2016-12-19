@@ -3,8 +3,6 @@ import './App.css';
 
 var ObjectDataListStore = require('./ObjectDataListStore');
 var FixedDataTable = require('fixed-data-table');
-var myData2 = require('./ads_metrics/ads-metrics-data.json');
-
 
 const {Table, Column, Cell} = FixedDataTable;
 
@@ -43,6 +41,11 @@ class App extends Component {
         <Column
           header={<Cell>Name</Cell>}
           cell={<LinkCell data={dataList} col="name" />}
+          fixed={true}
+          width={100}/>
+         <Column
+          header={<Cell>Status</Cell>}
+          cell={<LinkCell data={dataList} col="status" />}
           fixed={true}
           width={100}/>
         <Column

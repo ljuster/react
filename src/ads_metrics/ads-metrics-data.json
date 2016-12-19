@@ -10,7 +10,7 @@
       "actions:link_click",
       "cost_per_action_type:cost_per_goal",
       "actions:offsite_conversion"
-    ],
+    ] ,
  "rows": [
        {
         "remote_id": "456",

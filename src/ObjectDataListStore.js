@@ -7,30 +7,35 @@ class ObjectDataListStore {
         this._cache = [];
     }
 
-    getRowObjectData(/*number*/ index) /*object*/ {
+    getRowObjectData(ad_ind, metric_ind) /*object*/ {
         return {
-            name: myData.ads[index].name,
-            impressions: myData2.rows[index].impressions,
-            reach: myData2.rows[index].reach,
-            frequency: myData2.rows[index].frequency,
-            cpm: myData2.rows[index].cpm,
-            spend: myData2.rows[index].spend,
-            ctr: myData2.rows[index].ctr,
-            cost_per_inline_link_click: myData2.rows[index].cost_per_inline_link_click,
-            actions_goal: myData2.rows[index].actions_goal,
-            actions_link_click: myData2.rows[index].actions_link_click,
-            cost_per_action_type_cost_per_goal: myData2.rows[index].cost_per_action_type_cost_per_goal,
-            actions_offsite_conversion: myData2.rows[index].actions_offsite_conversion
+            name: myData.ads[ad_ind].name,
+            status: myData.ads[ad_ind].status,
+            impressions: myData2.rows[metric_ind].impressions,
+            reach: myData2.rows[metric_ind].reach,
+            frequency: myData2.rows[metric_ind].frequency,
+            cpm: myData2.rows[metric_ind].cpm,
+            spend: myData2.rows[metric_ind].spend,
+            ctr: myData2.rows[metric_ind].ctr,
+            cost_per_inline_link_click: myData2.rows[metric_ind].cost_per_inline_link_click,
+            actions_goal: myData2.rows[metric_ind].actions_goal,
+            actions_link_click: myData2.rows[metric_ind].actions_link_click,
+            cost_per_action_type_cost_per_goal: myData2.rows[metric_ind].cost_per_action_type_cost_per_goal,
+            actions_offsite_conversion: myData2.rows[metric_ind].actions_offsite_conversion
         };
     }
 
     getObjectAt(/*number*/ index) /*?object*/ {
+        var metric_ind=0;
 
-        if (index < 0 || index > this.size){
+        while(myData.ads[index].remote_id !== myData2.rows[metric_ind].remote_id & metric_ind < myData.ads.length){
+            metric_ind++;
+        }
+        if (index < 0 || index > this.size || metric_ind === myData.ads.length){
             return undefined;
         }
         if (this._cache[index] === undefined) {
-            this._cache[index] = this.getRowObjectData(index);
+            this._cache[index] = this.getRowObjectData(index, metric_ind);
         }
         return this._cache[index];
     }
