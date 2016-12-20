@@ -2,7 +2,7 @@ var myData = require('./ads/ads-data.json');
 var myData2 = require('./ads_metrics/ads-metrics-data.json');
 
 class ObjectDataListStore {
-    constructor(/*number*/ size){
+    constructor(){
         this.size = myData.ads.length;
         this._cache = [];
     }

@@ -36,24 +36,12 @@ For the project to build, **these files must exist with exact filenames**:
 * `public/index.html` is the page template;
 * `src/index.js` is the JavaScript entry point.
 
-You can, however, create more top-level directories.<br>
-They will not be included in the production build so you can use them for things like documentation.
-
 
 ## How to Start the App
 
-
-
-```
-
-
-```
-
-
-
-
-
-
-## Troubleshooting
-
+* Make sure you have [node.js installed on your computer] (https://nodejs.org/en/)
+* Clone or download the src code from [this repository] (https://github.com/ljuster/react)
+* Navigate to the folder location in your terminal and enter 
+  > npm start
+* The app should automatically start and open in your browser!
 
